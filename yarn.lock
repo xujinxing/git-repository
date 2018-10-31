@@ -109,9 +109,9 @@
     array-from "^2.1.1"
 
 "@types/node@^10.11.7":
-  version "10.12.0"
-  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
-  integrity sha1-6m3L3bxbWEyD8Gxg6Cc22PuwwjU=
+  version "10.12.1"
+  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-10.12.1.tgz#da61b64a2930a80fa708e57c45cd5441eb379d5b"
+  integrity sha1-2mG2SikwqA+nCOV8Rc1UQes3nVs=
 
 "@types/semver@^5.5.0":
   version "5.5.0"
@@ -1712,9 +1712,9 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000899"
-  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000899.tgz#f66d667d507c2aa19603a4a3763d71aa89cc360f"
-  integrity sha1-9m1mfVB8KqGWA6Sjdj1xqonMNg8=
+  version "1.0.30000903"
+  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000903.tgz#1664c52659b4a5e3c326153e29d0c1c6997b4333"
+  integrity sha1-FmTFJlm0pePDJhU+KdDBxpl7QzM=
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -2339,9 +2339,9 @@ css-selector-tokenizer@^0.5.1:
     fastparse "^1.1.1"
 
 css-selector-tokenizer@^0.7.0:
-  version "0.7.0"
-  resolved "http://registry.npm.taobao.org/css-selector-tokenizer/download/css-selector-tokenizer-0.7.0.tgz#e6988474ae8c953477bf5e7efecfceccd9cf4c86"
-  integrity sha1-5piEdK6MlTR3v15+/s/OzNnPTIY=
+  version "0.7.1"
+  resolved "http://registry.npm.taobao.org/css-selector-tokenizer/download/css-selector-tokenizer-0.7.1.tgz#a177271a8bca5019172f4f891fc6eed9cbf68d5d"
+  integrity sha1-oXcnGovKUBkXL0+JH8bu2cv2jV0=
   dependencies:
     cssesc "^0.1.0"
     fastparse "^1.1.1"
@@ -3513,9 +3513,9 @@ fast-levenshtein@~2.0.4:
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
 fastparse@^1.1.1:
-  version "1.1.1"
-  resolved "http://registry.npm.taobao.org/fastparse/download/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
-  integrity sha1-0eJkOzipTXWDtHkGDmxK/8lAcfg=
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/fastparse/download/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
+  integrity sha1-kXKMWllC7O2FMSg8eUQe5BIsNak=
 
 faye-websocket@^0.10.0:
   version "0.10.0"
@@ -6606,9 +6606,9 @@ postcss-minify-selectors@^2.0.4:
     postcss-selector-parser "^2.0.0"
 
 postcss-modules-extract-imports@^1.0.0:
-  version "1.1.0"
-  resolved "http://registry.npm.taobao.org/postcss-modules-extract-imports/download/postcss-modules-extract-imports-1.1.0.tgz#b614c9720be6816eaee35fb3a5faa1dba6a05ddb"
-  integrity sha1-thTJcgvmgW6u41+zpfqh26agXds=
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/postcss-modules-extract-imports/download/postcss-modules-extract-imports-1.2.1.tgz#dc87e34148ec7eab5f791f7cd5849833375b741a"
+  integrity sha1-3IfjQUjsfqtfeR981YSYMzdbdBo=
   dependencies:
     postcss "^6.0.1"
 
