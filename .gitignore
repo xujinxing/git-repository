@@ -33,6 +33,8 @@ local.properties
 # Web
 #
 /web/output/
+.temp/
+dist/
 
 # node.js
 #

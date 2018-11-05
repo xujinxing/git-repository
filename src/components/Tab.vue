@@ -1,15 +1,9 @@
-<template recyclable>
-  <div>
+<template>
+  <div class="tabcontainer">
     <div class="tabbar">
       <div class="tab active" :style="{ left: activeTab * 150 + 'px'}"></div>
-      <div v-for="(tab, i) in tabs" :key="i" class="tab" @click="activeTab = i">
-        <image class="icon" :src="tab.icon"></image>
+      <div v-for="(tab, i) in tabs" :key="i" class="tab" @click="toggle(i)">
         <text class="title">{{tab.title}}</text>
-      </div>
-    </div>
-    <div class="tab-panels" :style="{ left: activeTab * -750 + 'px'}">
-      <div class="panel" v-for="(panel, pi) in panels" :key="pi">
-        <text class="content">{{panel.content}}</text>
       </div>
     </div>
   </div>
@@ -35,52 +29,43 @@ export default {
       return this.tabs.map(tab => ({ content: tab.title }));
     },
   },
+  methods: {
+    toggle(i) {
+      this.activeTab = i;
+      this.$emit('toggle', this.tabs[i].tab);
+    },
+  },
 };
 </script>
 
 <style scoped>
+  .tabcontainer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  },
   .tabbar {
     flex-direction: row;
-    background-color: #FF4563;
+    background-color: #444;
   }
   .tab {
     height: 120px;
     width: 150px;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
   }
   .active {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgb(218, 59, 85);
+    background-color: #333;
     transition: left 0.2s ease-in-out;
-  }
-  .icon {
-    width: 45px;
-    height: 45px;
   }
   .title {
     font-size: 28px;
     color: #FFF;
     margin-top: 10px;
-  }
-  .tab-panels {
-    position: relative;
-    width: 3750;
-    flex: 1;
-    flex-direction: row;
-    align-items: stretch;
-    background-color: #F5F5F5;
-    transition: left 0.2s ease-in-out;
-  }
-  .panel {
-    width: 750px;
-    justify-content: center;
-    align-items: center;
-  }
-  .content {
-    font-size: 100px;
-    color: #707070;
   }
 </style>

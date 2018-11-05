@@ -206,7 +206,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   })), (_vm.floor.count) ? _c('text', {
     staticClass: ["floor-comment"]
-  }, [_vm._v(_vm._s(_vm.floor.count) + " 人说好")]) : _vm._e()])
+  }, [_vm._v(_vm._s(_vm.floor.count) + " 点击数")]) : _vm._e()])
 },"@render":function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["floor"],
@@ -253,7 +253,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "[[match]]": "floor.count",
       "value": [{
         "@binding": "floor.count"
-      }, " 人说好"]
+      }, " 点击数"]
     }
   })])
 },staticRenderFns: []}

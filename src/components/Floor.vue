@@ -5,7 +5,7 @@
     <div class="floor-image-box row">
       <image class="floor-image" :src="source" v-for="(source, x) in floor.pictures" :key="x" />
     </div>
-    <text class="floor-comment" v-if="floor.count">{{floor.count}} 人说好</text>
+    <text class="floor-comment" v-if="floor.count">{{floor.count}} 点击数</text>
   </div>
 </template>
 

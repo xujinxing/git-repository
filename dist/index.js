@@ -206,7 +206,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   })), (_vm.floor.count) ? _c('text', {
     staticClass: ["floor-comment"]
-  }, [_vm._v(_vm._s(_vm.floor.count) + " 人说好")]) : _vm._e()])
+  }, [_vm._v(_vm._s(_vm.floor.count) + " 点击数")]) : _vm._e()])
 },"@render":function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["floor"],
@@ -253,7 +253,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "[[match]]": "floor.count",
       "value": [{
         "@binding": "floor.count"
-      }, " 人说好"]
+      }, " 点击数"]
     }
   })])
 },staticRenderFns: []}
@@ -274,7 +274,7 @@ __vue_styles__.push(__webpack_require__(5)
 __vue_exports__ = __webpack_require__(6)
 
 /* template */
-var __vue_template__ = __webpack_require__(7)
+var __vue_template__ = __webpack_require__(15)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -288,7 +288,6 @@ if (typeof __vue_options__ === "function") {
 }
 __vue_options__.__file = "E:\\workspace\\noder-weex\\src\\components\\Tab.vue"
 __vue_options__.render = __vue_template__.render
-__vue_options__["@render"] = __vue_template__["@render"]
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-0b832535"
 __vue_options__.style = __vue_options__.style || {}
@@ -309,21 +308,28 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
+  "tabcontainer": {
+    "position": "fixed",
+    "left": 0,
+    "right": 0,
+    "top": 0
+  },
   "tabbar": {
     "flexDirection": "row",
-    "backgroundColor": "#FF4563"
+    "backgroundColor": "#444444"
   },
   "tab": {
     "height": "120",
     "width": "150",
     "justifyContent": "center",
-    "alignItems": "center"
+    "alignItems": "center",
+    "backgroundColor": "rgba(0,0,0,0)"
   },
   "active": {
     "position": "absolute",
     "top": 0,
     "left": 0,
-    "backgroundColor": "rgb(218,59,85)",
+    "backgroundColor": "#333333",
     "transitionProperty": "left",
     "transitionDuration": 200,
     "transitionTimingFunction": "ease-in-out"
@@ -333,41 +339,12 @@ module.exports = {
       "property": "left",
       "duration": 200,
       "timingFunction": "ease-in-out"
-    },
-    "tab-panels": {
-      "property": "left",
-      "duration": 200,
-      "timingFunction": "ease-in-out"
     }
-  },
-  "icon": {
-    "width": "45",
-    "height": "45"
   },
   "title": {
     "fontSize": "28",
     "color": "#FFFFFF",
     "marginTop": "10"
-  },
-  "tab-panels": {
-    "position": "relative",
-    "width": 3750,
-    "flex": 1,
-    "flexDirection": "row",
-    "alignItems": "stretch",
-    "backgroundColor": "#F5F5F5",
-    "transitionProperty": "left",
-    "transitionDuration": 200,
-    "transitionTimingFunction": "ease-in-out"
-  },
-  "panel": {
-    "width": "750",
-    "justifyContent": "center",
-    "alignItems": "center"
-  },
-  "content": {
-    "fontSize": "100",
-    "color": "#707070"
   }
 }
 
@@ -381,12 +358,6 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -420,132 +391,17 @@ exports.default = {
         return { content: tab.title };
       });
     }
+  },
+  methods: {
+    toggle: function toggle(i) {
+      this.activeTab = i;
+      this.$emit('toggle', this.tabs[i].tab);
+    }
   }
 };
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
-    staticClass: ["tabbar"]
-  }, [_c('div', {
-    staticClass: ["tab", "active"],
-    style: {
-      left: _vm.activeTab * 150 + 'px'
-    }
-  }), _vm._l((_vm.tabs), function(tab, i) {
-    return _c('div', {
-      key: i,
-      staticClass: ["tab"],
-      on: {
-        "click": function($event) {
-          _vm.activeTab = i
-        }
-      }
-    }, [_c('image', {
-      staticClass: ["icon"],
-      attrs: {
-        "src": tab.icon
-      }
-    }), _c('text', {
-      staticClass: ["title"]
-    }, [_vm._v(_vm._s(tab.title))])])
-  })], 2), _c('div', {
-    staticClass: ["tab-panels"],
-    style: {
-      left: _vm.activeTab * -750 + 'px'
-    }
-  }, _vm._l((_vm.panels), function(panel, pi) {
-    return _c('div', {
-      key: pi,
-      staticClass: ["panel"]
-    }, [_c('text', {
-      staticClass: ["content"]
-    }, [_vm._v(_vm._s(panel.content))])])
-  }))])
-},"@render":function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    attrs: {
-      "@isComponentRoot": true,
-      "@templateId": _vm._uid,
-      "@componentProps": _vm.$props || {}
-    }
-  }, [_c('div', {
-    staticClass: ["tabbar"]
-  }, [_c('div', {
-    staticClass: ["tab", "active"],
-    staticStyle: {
-      "left": {
-        "@binding": "activeTab * 150 + 'px'"
-      }
-    }
-  }), _c('div', {
-    key: {
-      "@binding": "i"
-    },
-    staticClass: ["tab"],
-    attrs: {
-      "[[repeat]]": {
-        "@expression": "tabs",
-        "@alias": "tab",
-        "@index": "i"
-      }
-    },
-    on: {
-      "click": function($event) {
-        var _vm = this;
-        var _h = _vm.$createElement;
-        var _c = _vm._self._c || _h;
-        _vm.activeTab = _vm.i
-      }
-    }
-  }, [_c('image', {
-    staticClass: ["icon"],
-    attrs: {
-      "src": {
-        "@binding": "tab.icon"
-      }
-    }
-  }), _c('text', {
-    staticClass: ["title"],
-    attrs: {
-      "value": {
-        "@binding": "tab.title"
-      }
-    }
-  })])]), _c('div', {
-    staticClass: ["tab-panels"],
-    staticStyle: {
-      "left": {
-        "@binding": "activeTab * -750 + 'px'"
-      }
-    }
-  }, [_c('div', {
-    key: {
-      "@binding": "pi"
-    },
-    staticClass: ["panel"],
-    attrs: {
-      "[[repeat]]": {
-        "@expression": "panels",
-        "@alias": "panel",
-        "@index": "pi"
-      }
-    }
-  }, [_c('text', {
-    staticClass: ["content"],
-    attrs: {
-      "value": {
-        "@binding": "panel.content"
-      }
-    }
-  })])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
+/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */
@@ -650,55 +506,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
+var stream = weex.requireModule('stream');
+var dom = weex.requireModule('dom');
 
 var dataset = {
-  tab: [{
-    type: 'tab',
-    tabs: [{ title: '首页', icon: 'https://gw.alicdn.com/tfs/TB19YESOVXXXXaNaXXXXXXXXXXX-45-45.png' }, { title: '耍帅', icon: 'https://gw.alicdn.com/tfs/TB1I2E9OVXXXXbFXVXXXXXXXXXX-45-45.png' }, { title: '旅行', icon: 'https://gw.alicdn.com/tfs/TB1gUhyPXXXXXX5XXXXXXXXXXXX-45-45.png' }, { title: '潮玩', icon: 'https://img.alicdn.com/tfs/TB1D4RzQFXXXXcoXpXXXXXXXXXX-45-45.png' }, { title: '穿搭', icon: 'https://gw.alicdn.com/tfs/TB1N1.6OVXXXXXqaXXXXXXXXXXX-45-45.png' }]
-  }],
-  floor: [{
-    type: 'floor',
-    title: '就造专属感，给孩子寻个座椅好玩伴',
-    desc: '犹记得儿时的风筝带着斑斓的色彩在天空飘过；那小河里躲迷藏的鱼虾，还待着小伙伴们一起去捕捉，如今的孩童没有了这些简单且纯粹的娱乐项目，生活在高楼城市中的他们，该当怎样度过自己的童年才是美好的？',
-    pictures: ['https://gw.alicdn.com/tfscom/i3/48292642/TB29OtIakz_F1JjSZFkXXcCaXXa_!!48292642.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i4/706778912/TB2hvwSXBvBIuJjy1zeXXbGBpXa_!!706778912-0-beehive-scenes.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i3/706778912/TB2wX.fcxz9F1JjSZFsXXaCGVXa_!!706778912-0-beehive-scenes.jpg_250x250q90s200.jpg'],
-    count: 237
-  }, {
-    type: 'floor',
-    title: '睡袍穿不对，脱光也不媚！',
-    desc: '“Ihatemynightgown（我讨厌我的睡袍）.”经典电影《罗马假日》中，赫本饰演的安妮公主躺在梦幻的宫廷大床上，抱怨她身上那华丽的大睡袍臃肿不便，为公主的浪漫逃逸埋下伏笔。想象一下，男朋友刚刚',
-    pictures: ['https://gw.alicdn.com/imgextra/i3/3044653839/TB2a_nAXgsSMeJjSspdXXXZ4pXa_!!3044653839-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i1/3044653839/TB2qrPCXiERMeJjSspiXXbZLFXa_!!3044653839-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i1/3044653839/TB2ySjuXgsSMeJjSspeXXa77VXa_!!3044653839-0-beehive-scenes.jpg_250x250q90s200.jpg'],
-    count: 876
-  }, {
-    type: 'floor',
-    title: '上天入海？运动相机帮你搞定',
-    desc: '现如今相机好像成为了我们每个人必不可少的装备，不管是专业的相机还是我们可拍照的手机，我们使用到它的频率也越来越高。为了追求更好的拍摄质量，人们似乎也愿意花更多的钱去购买好的拍摄装备',
-    pictures: ['https://gw.alicdn.com/tfscom/i3/462856946/TB2VzQswB4lpuFjy1zjXXcAKpXa_!!462856946.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/tfscom/i2/2811920170/TB2rCqHpVXXXXcZXpXXXXXXXXXX_!!2811920170.png_250x250.jpg', 'https://gw.alicdn.com/imgextra/i4/836552381/TB2c1q3aZSfF1JjSsplXXbrKFXa_!!836552381-0-beehive-scenes.jpg_250x250q90s200.jpg'],
-    count: 59
-  }, {
-    type: 'floor',
-    title: '关于培根的那些事，教你吃得门清',
-    desc: '培根一直被认为是早餐的头盘，早上烤两片面包，平底锅煎一片培根、一个鸡蛋，和生菜一起夹在面包中，有荤有素，就是一顿丰富美味的西式早餐。培根的英文名是“Bacon”，原意是烟熏的猪肋条肉，或烟熏背脊肉',
-    pictures: ['https://gw.alicdn.com/imgextra/i2/603964020/TB24zFbarwTMeJjSszfXXXbtFXa_!!603964020-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i2/603964020/TB2txtdarsTMeJjy1zcXXXAgXXa_!!603964020-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/tfscom/i3/1635378022/TB2plKDbFXXXXaTXpXXXXXXXXXX-1635378022.jpg_250x250q90s200.jpg'],
-    count: 3576
-  }, {
-    type: 'floor',
-    title: '轻奢风来袭，皮艺床打造典雅居室',
-    desc: '对于追求生活高品质感的小伙伴来说，皮艺家具是展现其高格调的途径之一。想要营造出奢华质感的卧室环境，大气庄重的皮床当然是不错的选择。特别是简欧风或是美式古典风格的家居环境，如果配以皮艺床简直就是点睛之笔',
-    pictures: ['https://gw.alicdn.com/imgextra/i2/787557947/TB2erNKawoQMeJjy0FoXXcShVXa_!!787557947-0-beehive-scenes.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i1/787557947/TB2KANyaBUSMeJjy1zkXXaWmpXa_!!787557947-0-beehive-scenes.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i3/787557947/TB2lwdGayERMeJjy0FcXXc7opXa_!!787557947-0-beehive-scenes.jpg_250x250q90s200.jpg'],
-    count: 36
-  }, {
-    type: 'floor',
-    title: '提高品质生活，从用好水开始',
-    desc: '我们生活中每天都要喝水、用水，可是你真的喝到、用到好水了么？为了得到更高品质的生活，我们需要更多的好东西让我们的生活更有档次，那不如就从改变你每天都要亲密接触的水开始吧',
-    pictures: ['https://gw.alicdn.com/imgextra/i2/1904229646/TB2dRg4dgoQMeJjy0FpXXcTxpXa_!!1904229646-2-daren.png_250x250.jpg', 'https://gw.alicdn.com/imgextra/i1/1904229646/TB2JtOjfOAKL1JjSZFoXXagCFXa_!!1904229646-2-daren.png_250x250.jpg', 'https://gw.alicdn.com/imgextra/i1/1904229646/TB2BSXjdwsSMeJjSspeXXa77VXa_!!1904229646-2-daren.png_250x250.jpg'],
-    count: 74
-  }, {
-    type: 'floor',
-    title: '酒鬼到了意大利，收不住的红酒心',
-    desc: '意大利是一个集古典与艺术于一身的国度，这里是艺术的发源地之一，也是欧洲最早种植葡萄的国家之一。意大利的酿酒历史超过4000年，本地葡萄品种过千不止，古希腊人称其为“葡萄酒之国”',
-    pictures: ['https://gw.alicdn.com/imgextra/i1/2872639756/TB21lwtXjihSKJjy0FiXXcuiFXa_!!2872639756-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i1/2872639756/TB2zgRJdwMPMeJjy1XdXXasrXXa_!!2872639756-0-daren.jpg_250x250q90s200.jpg', 'https://gw.alicdn.com/imgextra/i2/2872639756/TB2Ki0NdBUSMeJjSspfXXX0VFXa_!!2872639756-0-daren.jpg_250x250q90s200.jpg'],
-    count: 182
-  }]
+  floor: []
 };
 
 // generate list data
@@ -711,30 +530,93 @@ function createListData(order) {
   }
   return array;
 }
-var initial = 'tab,floor';
+var initial = 'floor';
 
-var more = 'tab,floor';
+var more = 'floor';
 
 var modal = weex.requireModule('modal');
 exports.default = {
   components: { Tab: _Tab2.default, Floor: _Floor2.default },
   data: function data() {
     return {
-      longList: createListData(initial)
+      marginTop: 0,
+      longList: createListData(initial),
+      tabs: [{ title: '主页' }, { title: '精华', tab: 'good' }, { title: '分享', tab: 'share' }, { title: '问答', tab: 'ask' }, { title: '招聘', tab: 'job' }],
+      tab: undefined,
+      page: 1
     };
+  },
+  created: function created() {
+    this.getListData();
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    dom.getComponentRect(this.$refs.tab, function (_ref) {
+      var size = _ref.size;
+
+      _this.marginTop = size.height + 'px';
+    });
   },
 
   methods: {
     loadmore: function loadmore() {
-      var _this = this;
+      var _this2 = this;
 
-      var newData = createListData(more);
-      modal.toast({ message: 'loadmore (' + (this.longList.length + newData.length) + ')' });
-      setTimeout(function () {
-        var _longList;
+      this.page += 1;
+      this.getListData(function () {
+        var newData = createListData(more);
+        modal.toast({ message: 'loadmore (' + (_this2.longList.length + newData.length) + ')' });
+        setTimeout(function () {
+          var _longList;
 
-        (_longList = _this.longList).push.apply(_longList, _toConsumableArray(newData));
-      }, 0);
+          (_longList = _this2.longList).push.apply(_longList, _toConsumableArray(newData));
+        }, 0);
+      });
+    },
+    toggleTab: function toggleTab(tab) {
+      this.tab = tab;
+      this.page = 1;
+      this.getListData();
+    },
+    getListData: function getListData(callback) {
+      var _this3 = this;
+
+      var params = {
+        page: this.page || 1,
+        limit: 10
+      };
+      if (this.tab) {
+        params.tab = this.tab;
+      }
+      var paramStr = Object.keys(params).reduce(function (sum, key) {
+        if (sum === '') {
+          return '?' + key + '=' + params[key];
+        }
+        return sum + '&' + key + '=' + params[key];
+      }, '');
+      stream.fetch({
+        method: 'GET',
+        type: 'json',
+        url: 'https://cnodejs.org/api/v1/topics' + paramStr
+      }, function (res) {
+        if (res.data.success) {
+          dataset.floor = res.data.data.map(function (item) {
+            return {
+              type: 'floor',
+              title: item.title,
+              desc: item.content,
+              pictures: [item.author.avatar_url],
+              count: item.visit_count
+            };
+          });
+          if (callback) {
+            callback(dataset.floor);
+          } else {
+            _this3.longList = createListData(initial);
+          }
+        }
+      });
     }
   }
 };
@@ -744,8 +626,11 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('recycle-list', {
+  return _c('div', [_c('recycle-list', {
     staticClass: ["list"],
+    style: {
+      marginTop: _vm.marginTop
+    },
     appendAsTree: true,
     attrs: {
       "listData": _vm.longList,
@@ -761,19 +646,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('cell-slot', {
     appendAsTree: true,
     attrs: {
-      "case": "tab",
-      "append": "tree"
-    }
-  }, [_c('tab', {
-    attrs: {
-      "tabs": {
-        "@binding": "item.tabs"
-      },
-      "@inRecycleList": true
-    }
-  })], 1), _c('cell-slot', {
-    appendAsTree: true,
-    attrs: {
       "case": "floor",
       "append": "tree"
     }
@@ -784,7 +656,45 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       "@inRecycleList": true
     }
-  })], 1)], 1)
+  })], 1)], 1), _c('tab', {
+    ref: "tab",
+    attrs: {
+      "tabs": _vm.tabs
+    },
+    on: {
+      "toggle": _vm.toggleTab
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["tabcontainer"]
+  }, [_c('div', {
+    staticClass: ["tabbar"]
+  }, [_c('div', {
+    staticClass: ["tab", "active"],
+    style: {
+      left: _vm.activeTab * 150 + 'px'
+    }
+  }), _vm._l((_vm.tabs), function(tab, i) {
+    return _c('div', {
+      key: i,
+      staticClass: ["tab"],
+      on: {
+        "click": function($event) {
+          _vm.toggle(i)
+        }
+      }
+    }, [_c('text', {
+      staticClass: ["title"]
+    }, [_vm._v(_vm._s(tab.title))])])
+  })], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
