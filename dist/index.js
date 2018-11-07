@@ -493,9 +493,14 @@ var _Floor = __webpack_require__(0);
 
 var _Floor2 = _interopRequireDefault(_Floor);
 
+var _OverlayButton = __webpack_require__(16);
+
+var _OverlayButton2 = _interopRequireDefault(_OverlayButton);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } //
+//
 //
 //
 //
@@ -536,7 +541,7 @@ var more = 'floor';
 
 var modal = weex.requireModule('modal');
 exports.default = {
-  components: { Tab: _Tab2.default, Floor: _Floor2.default },
+  components: { Tab: _Tab2.default, Floor: _Floor2.default, OverlayButton: _OverlayButton2.default },
   data: function data() {
     return {
       marginTop: 0,
@@ -664,7 +669,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "toggle": _vm.toggleTab
     }
-  })], 1)
+  }), _c('overlay-button')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -695,6 +700,123 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: ["title"]
     }, [_vm._v(_vm._s(tab.title))])])
   })], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(17)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(18)
+
+/* template */
+var __vue_template__ = __webpack_require__(19)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "E:\\workspace\\noder-weex\\src\\components\\OverlayButton.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-3bdbae7c"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "overlay": {
+    "position": "fixed",
+    "bottom": "45",
+    "left": "45",
+    "height": "90",
+    "width": "90",
+    "borderRadius": "45",
+    "backgroundColor": "rgba(0,0,0,0.7)",
+    "flexDirection": "row",
+    "justifyContent": "center",
+    "alignItems": "center"
+  },
+  "icon": {
+    "flex": 1,
+    "width": "25",
+    "height": "25"
+  }
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+
+var navigator = weex.requireModule('navigator');
+
+exports.default = {
+  methods: {
+    toLogin: function toLogin() {
+      navigator.push({
+        url: 'http://10.100.146.15:8081/login.js',
+        animated: "true"
+      });
+    }
+  }
+};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["overlay"],
+    on: {
+      "click": _vm.toLogin
+    }
+  }, [_c('image', {
+    staticClass: ["icon"],
+    attrs: {
+      "src": "https://vuejs.org/images/logo.png"
+    }
+  })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

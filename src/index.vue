@@ -12,12 +12,14 @@
     </cell-slot>
   </recycle-list>
   <tab ref="tab" :tabs="tabs" @toggle="toggleTab"></tab>
+  <overlay-button></overlay-button>
 </div>
 </template>
 
 <script>
 import Tab from './components/Tab';
 import Floor from './components/Floor';
+import OverlayButton from './components/OverlayButton';
 
 const stream = weex.requireModule('stream');
 const dom = weex.requireModule('dom');
@@ -42,7 +44,7 @@ const more = 'floor';
 
 const modal = weex.requireModule('modal');
 export default {
-  components: { Tab, Floor },
+  components: { Tab, Floor, OverlayButton },
   data() {
     return {
       marginTop: 0,
